@@ -1,0 +1,150 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BookNest - Tailwind Landing Page</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            DEFAULT: '#2c3e50',
+                            light: '#3498db',
+                            accent: '#e74c3c'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body>
+
+    <header class="bg-brand text-white shadow-md">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <div class="text-xl font-bold">📚 Book<span class="text-red-400">Nest</span></div>
+            <!-- Collapsible / Hidden on mobile, flex on md -->
+            <ul class="hidden md:flex space-x-6">
+                <li><a href="index.html" class="hover:text-brand-light transition">Home</a></li>
+                <li><a href="landing.html" class="hover:text-brand-light transition">Tailwind Landing</a></li>
+                <li><a href="catalog.html" class="hover:text-brand-light transition">Catalog</a></li>
+                <li><a href="todo.html" class="text-brand-light font-semibold">Todo App</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="max-w-sm mx-auto mt-10 p-5 rounded-lg bg-gray-200  flex flex-col items-center justify-center border">
+        <h1 class="text-2xl font-bold text-center pt-10">
+            My Todo Application
+        </h1>
+
+        <div class="flex item-center justify-center mt-5 gap-2">
+            <input id="taskInput" type="text" placeholder="Enter your task"
+                class="border border-gray rounded-lg outline-none px-4 py-1 ">
+            <button id="addbtn" class="bg-black text-white px-4 py-1 rounded-lg">
+                add
+            </button>
+            <button id="reset" class="bg-red-500 text-white px-4 py-1 rounded-lg">
+                Reset
+            </button>
+        </div>
+
+        <!-- todo list -->
+        <ul id="todolist" class="mx-5">
+        </ul>
+    </div>
+
+    <!-- script -->
+    <script>
+        const taskInput = document.getElementById("taskInput")
+        const addbtn = document.getElementById("addbtn")
+        const todolist = document.getElementById("todolist")
+        const reset = document.getElementById("reset")
+
+        let todos = []
+
+        function renderTodos() {
+
+            todolist.innerHTML = ""
+
+            todos.forEach((todo, index) => {
+                console.log(index, todo.title);
+                todolist.innerHTML += `
+            <li class="mt-2">
+                <div class="flex gap-5 justify-between"> 
+                    <div>
+                        <input type="checkbox"
+                        ${todo.completed ? 'checked' : ""}
+                        onChange="completedTodo(${index})"/>
+                        <span class="${todo.completed ? "line-through text-gray-500" : ""}">
+                            ${todo.title}
+                        </span>    
+                    </div>
+                    <button 
+                    onclick=(deleteTodo(${index}))
+                    class="bg-red-500 px-4 rounded-lg ">
+                    del       
+                    </button>
+                </div>
+            </li>`
+            })
+        }
+
+        addbtn.addEventListener("click", () => {
+            const task = taskInput.value
+            if (task === "") return
+            todos.push({
+                title: task,
+                completed: false,
+            })
+            localStorage.setItem("todos", JSON.stringify(todos))
+            renderTodos()
+            taskInput.value = ""
+        })
+
+        reset.addEventListener("click", () => {
+            localStorage.clear()
+            todos = []
+            renderTodos()
+        })
+
+        //  ---------------------
+        // completed todos
+        // ----------------------
+
+
+        function completedTodo(index) {
+            todos[index].completed = !todos[index].completed
+            localStorage.setItem("todos", JSON.stringify(todos))
+            renderTodos()
+        }
+        // delete btn
+
+        function deleteTodo(index) {
+            console.log(index);
+            todos.splice(index, 1);
+            renderTodos()
+            localStorage.setItem("todos", JSON.stringify(todos))
+        }
+
+
+        const savedTodos = localStorage.getItem("todos")
+        // console.log("Get Todos from local storage", savedTodos)
+        if (savedTodos) {
+            todos = JSON.parse(savedTodos)
+
+        }
+
+        renderTodos()
+
+    </script>
+
+</body>
+
+</html>

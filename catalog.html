@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BookNest - Catalog</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            DEFAULT: '#2c3e50',
+                            light: '#3498db',
+                            accent: '#e74c3c'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-gray-50 text-gray-800 font-sans min-h-screen flex flex-col justify-between">
+    <!-- Header & Shared Navbar -->
+    <header class="bg-brand text-white shadow-md">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <div class="text-xl font-bold">📚 Book<span class="text-red-400">Nest</span></div>
+            <ul class="hidden md:flex space-x-6">
+                <li><a href="index.html" class="hover:text-brand-light transition">Home</a></li>
+                <li><a href="landing.html" class="hover:text-brand-light transition">Tailwind Landing</a></li>
+                <li><a href="catalog.html" class="text-brand-light font-semibold">Catalog</a></li>
+                <li><a href="todo.html" class="hover:text-brand-light transition">Todo App</a></li>
+                <li>
+                    <span id="cart-counter"
+                        class="bg-brand-accent text-white px-3 py-1 rounded-full text-sm font-bold">Cart: 0</span>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 w-full">
+        <section class="catalog-section">
+            <h2 class="text-3xl font-bold text-brand mb-2">Book Catalog</h2>
+            <p class="text-gray-600 mb-8">Explore our complete collection of titles available across multiple genres.
+            </p>
+
+            <!-- Book Grid (Contains at least 6 book cards) -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+                <article class="bg-white p-6 rounded-xl shadow-md text-center">
+                    <img src="https://ts1.mm.bing.net/th?id=OIP.vJUQvH9HLnbhUQ8WClcTgwHaJ4&pid=15.1"
+                        alt="Dune Book Cover" class="w-full h-48 object-cover rounded-md mb-4">
+                    <h3 class="text-xl font-semibold mb-2">Dune</h3>
+                    <p class="text-gray-600 mb-2">Author: Frank Herbert</p>
+                    <p class="text-brand-accent font-bold text-lg mb-4">$499</p>
+                    <button
+                        class="bg-green-500 text-white px-4 py-2 rounded-lg font-semibold hover:bg-green-600 transition w-full">Buy
+                        Now</button>
+                </article>
+                <article class="bg-white p-6 rounded-xl shadow-md text-center">
+                    <img src="https://tse1.mm.bing.net/th/id/OIP.wBMadxgUWEd_rNZ2D5ebgAHaE0?r=0&rs=1&pid=ImgDetMain&o=7&rm=3"
+                        alt="1984 Book Cover" class="w-full h-48 object-cover rounded-md mb-4">
+                    <h3 class="text-xl font-semibold mb-2">1984</h3>
+                    <p class="text-gray-600 mb-2">Author: George Orwell</p>
+                    <p class="text-brand-accent font-bold text-lg mb-4">$299</p>
+                    <button
+                        class="bg-green-500 text-white px-4 py-2 rounded-lg font-semibold hover:bg-green-600 transition w-full">Buy
+                        Now</button>
+                </article>
+                <article class="bg-white p-6 rounded-xl shadow-md text-center">
+                    <img src="https://tse4.mm.bing.net/th/id/OIP.y00KO7979U1eIIx6vyoINQHaG5?r=0&rs=1&pid=ImgDetMain&o=7&rm=3"
+                        alt="To Kill a Mockingbird Book Cover" class="w-full h-48 object-cover rounded-md mb-4">
+                    <h3 class="text-xl font-semibold mb-2">To Kill a Mockingbird</h3>
+                    <p class="text-gray-600 mb-2">Author: Harper Lee</p>
+                    <p class="text-brand-accent font-bold text-lg mb-4">$350</p>
+                    <button
+                        class="bg-green-500 text-white px-4 py-2 rounded-lg font-semibold hover:bg-green-600 transition w-full">Buy
+                        Now</button>
+                </article>
+                <article class="bg-white p-6 rounded-xl shadow-md text-center">
+                    <img src="https://tse1.mm.bing.net/th/id/OIP.tF436hZSjJtdyP9t9waJdgHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3"
+                        alt="The Hobbit Book Cover" class="w-full h-48 object-cover rounded-md mb-4">
+                    <h3 class="text-xl font-semibold mb-2">The Hobbit</h3>
+                    <p class="text-gray-600 mb-2">Author: J.R.R. Tolkien</p>
+                    <p class="text-brand-accent font-bold text-lg mb-4">$399</p>
+                    <button
+                        class="bg-green-500 text-white px-4 py-2 rounded-lg font-semibold hover:bg-green-600 transition w-full">Buy
+                        Now</button>
+                </article>
+                <article class="bg-white p-6 rounded-xl shadow-md text-center">
+                    <img src="https://i.pinimg.com/originals/9e/b2/08/9eb2086e3e6ac25f531c8d8bb2301596.jpg"
+                        alt="Pride and Prejudice Book Cover" class="w-full h-48 object-cover rounded-md mb-4">
+                    <h3 class="text-xl font-semibold mb-2">Pride and Prejudice</h3>
+                    <p class="text-gray-600 mb-2">Author: Jane Austen</p>
+                    <p class="text-brand-accent font-bold text-lg mb-4">$250</p>
+                    <button
+                        class="bg-green-500 text-white px-4 py-2 rounded-lg font-semibold hover:bg-green-600 transition w-full">Buy
+                        Now</button>
+                </article>
+                <article class="bg-white p-6 rounded-xl shadow-md text-center">
+                    <img src="https://tse1.mm.bing.net/th/id/OIP.6_-XLuBwfhCQo29VybeY-wHaIs?r=0&rs=1&pid=ImgDetMain&o=7&rm=3"
+                        alt="The Catcher in the Rye Book Cover" class="w-full h-48 object-cover rounded-md mb-4">
+                    <h3 class="text-xl font-semibold mb-2">The Catcher in the Rye</h3>
+                    <p class="text-gray-600 mb-2">Author: J.D. Salinger</p>
+                    <p class="text-brand-accent font-bold text-lg mb-4">$280</p>
+                    <button
+                        class="bg-green-500 text-white px-4 py-2 rounded-lg font-semibold hover:bg-green-600 transition w-full">Buy
+                        Now</button>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-brand text-white py-8 text-center mt-12">
+        <p>&copy; 2026 BookNest. All rights reserved.</p>
+    </footer>
+</body>
+
+</html>

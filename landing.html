@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BookNest - Tailwind Landing Page</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            DEFAULT: '#2c3e50',
+                            light: '#3498db',
+                            accent: '#e74c3c'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans">
+
+    <!-- Navbar -->
+    <header class="bg-brand text-white shadow-md">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <div class="text-xl font-bold">📚 Book<span class="text-red-400">Nest</span></div>
+            <!-- Collapsible / Hidden on mobile, flex on md -->
+            <ul class="hidden md:flex space-x-6">
+                <li><a href="index.html" class="hover:text-brand-light transition">Home</a></li>
+                <li><a href="landing.html" class="text-brand-light font-semibold">Tailwind Landing</a></li>
+                <li><a href="catalog.html" class="hover:text-brand-light transition">Catalog</a></li>
+                <li><a href="todo.html" class="hover:text-brand-light transition">Todo App</a></li>
+                <li>
+                    <span id="cart-counter" class="bg-brand-accent text-white px-3 py-1 rounded-full text-sm font-bold">Cart: 0</span>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-r from-brand to-brand-light text-white py-20 px-4 text-center">
+        <div class="max-w-3xl mx-auto">
+            <h1 class="text-4xl sm:text-5xl font-extrabold mb-4">Discover Your Next Great Read</h1>
+            <p class="text-lg sm:text-xl mb-8 text-gray-100">BookNest brings thousands of titles right to your fingertips with a modern, seamless browsing experience.</p>
+            <a href="catalog.html" class="bg-white text-brand font-bold py-3 px-8 rounded-lg shadow-lg hover:bg-gray-100 transition">Explore Catalog</a>
+        </div>
+    </section>
+
+    <!-- Features Section (3 Cards) -->
+    <section class="py-16 px-4 max-w-7xl mx-auto">
+        <h2 class="text-3xl font-bold text-center mb-12 text-brand">Why Choose BookNest?</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="bg-white p-6 rounded-xl shadow-md text-center">
+                <div class="text-brand-light text-4xl mb-4">🚀</div>
+                <h3 class="text-xl font-semibold mb-2">Fast Delivery</h3>
+                <p class="text-gray-600">Get your favorite books delivered to your doorstep within 48 hours guaranteed.</p>
+            </div>
+            <div class="bg-white p-6 rounded-xl shadow-md text-center">
+                <div class="text-brand-light text-4xl mb-4">📖</div>
+                <h3 class="text-xl font-semibold mb-2">Vast Collection</h3>
+                <p class="text-gray-600">Explore everything from Sci-Fi thrillers to classic dystopian masterpieces.</p>
+            </div>
+            <div class="bg-white p-6 rounded-xl shadow-md text-center">
+                <div class="text-brand-light text-4xl mb-4">💰</div>
+                <h3 class="text-xl font-semibold mb-2">Best Prices</h3>
+                <p class="text-gray-600">Enjoy competitive pricing, exclusive member discounts, and seasonal sales.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="bg-gray-100 py-16 px-4">
+        <div class="max-w-5xl mx-auto text-center">
+            <h2 class="text-3xl font-bold mb-12 text-brand">What Readers Say</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-white p-6 rounded-lg shadow">
+                    <p class="italic text-gray-600 mb-4">"BookNest completely changed how I find books. The layout is clean and ordering is effortless!"</p>
+                    <h4 class="font-bold text-brand">- Sarah Jenkins</h4>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow">
+                    <p class="italic text-gray-600 mb-4">"An absolute paradise for book lovers. Fast shipping and wonderful recommendations."</p>
+                    <h4 class="font-bold text-brand">- Michael Chang</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats / Pricing Section -->
+    <section class="py-16 px-4 max-w-7xl mx-auto text-center">
+        <h2 class="text-3xl font-bold mb-12 text-brand">Our Impact & Plans</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="bg-white p-8 rounded-xl border border-gray-200 shadow-sm">
+                <h3 class="text-xl font-bold text-brand mb-2">Standard Reader</h3>
+                <p class="text-3xl font-extrabold text-brand-light mb-4">Free</p>
+                <p class="text-gray-600 mb-6">Access to regular catalog browsing and standard shipping rates.</p>
+                <button class="bg-brand text-white py-2 px-6 rounded hover:bg-brand-light transition">Get Started</button>
+            </div>
+            <div class="bg-white p-8 rounded-xl border-2 border-brand-light shadow-md transform md:-translate-y-2">
+                <span class="bg-brand-light text-text-white text-xs uppercase px-2 py-1 rounded font-bold text-white mb-2 inline-block">Popular</span>
+                <h3 class="text-xl font-bold text-brand mb-2">BookNest Pro</h3>
+                <p class="text-3xl font-extrabold text-brand-light mb-4">$9.99<span class="text-sm font-normal text-gray-500">/mo</span></p>
+                <p class="text-gray-600 mb-6">Free express shipping, 20% off all bestsellers, and monthly curated boxes.</p>
+                <button class="bg-brand-light text-white py-2 px-6 rounded hover:bg-brand transition">Join Pro</button>
+            </div>
+            <div class="bg-white p-8 rounded-xl border border-gray-200 shadow-sm">
+                <h3 class="text-xl font-bold text-brand mb-2">Bibliophile</h3>
+                <p class="text-3xl font-extrabold text-brand-light mb-4">$19.99<span class="text-sm font-normal text-gray-500">/mo</span></p>
+                <p class="text-gray-600 mb-6">All Pro features plus VIP access to author meetups and signed editions.</p>
+                <button class="bg-brand text-white py-2 px-6 rounded hover:bg-brand-light transition">Go VIP</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-brand text-white py-8 text-center">
+        <p>&copy; 2026 BookNest. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
